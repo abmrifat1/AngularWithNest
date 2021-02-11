@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 mb-2" *ngFor="let post of postList">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{post.title}}</mat-card-title>
+          <mat-card-subtitle>{{post.subTitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="post.img" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>{{post.content}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent">LIKE</button>
+          <button mat-raised-button color="warn">SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
