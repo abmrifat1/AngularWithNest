@@ -1,5 +1,5 @@
 import { from, Observable } from "rxjs";
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { PostService } from '../services/postService';
 import { PostEntity } from "../entities/postEntity";
 
@@ -11,6 +11,11 @@ export class PostController {
     @Get()
     getAllPost(): Observable<PostEntity[]> {
         return this.postService.getAllPost();
+    }
+
+    @Get(':id')
+    getPostById(@Param('id') id: number): Observable<PostEntity> {
+        return this.postService.getPostById(id);
     }
 
     @Get('/create')

@@ -17,6 +17,10 @@ export class PostService {
         return from(this.postRepository.find());
     } 
 
+    public getPostById(id: number): Observable<PostEntity> {
+        return from(this.postRepository.findOne(id));
+    }
+
     public createPost() {
         this.postRepository.save(
             {
