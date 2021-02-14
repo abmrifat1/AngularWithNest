@@ -1,64 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IPostList } from '../dataModel/postList';
+import { PostService } from '../services/postsService';
 @Component({
   selector: 'app-post-list',
   templateUrl: './postList.html'
 })
 
 export class PostListComponent implements OnInit{
-  constructor() {
+
+  public postList: Observable<IPostList[]>;
+
+  constructor(private postService: PostService) {
   }
   title = 'nestNg';
-  postList = [
-    {
-      title: 'title - 1',
-      subTitle: 'sub-title - 1',
-      img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      content: 'this is content for post one.'
-    },
-    {
-      title: 'title - 2',
-      subTitle: 'sub-title - 2',
-      img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      content: 'this is content for post two.'
-    },
-    {
-      title: 'title - 3',
-      subTitle: 'sub-title - 3',
-      img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      content: 'this is content for post three.'
-    },
-    {
-      title: 'title - 4',
-      subTitle: 'sub-title - 4',
-      img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      content: 'this is content for post four.'
-    },
-    {
-      title: 'title - 1',
-      subTitle: 'sub-title - 1',
-      img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      content: 'this is content for post one.'
-    },
-    {
-      title: 'title - 2',
-      subTitle: 'sub-title - 2',
-      img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      content: 'this is content for post two.'
-    },
-    {
-      title: 'title - 3',
-      subTitle: 'sub-title - 3',
-      img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      content: 'this is content for post three.'
-    },
-    {
-      title: 'title - 4',
-      subTitle: 'sub-title - 4',
-      img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      content: 'this is content for post four.'
-    }
-  ];
   ngOnInit() {
-     console.log('all post:', this.postList)
+    this.postList = this.postService.getAllPost();
+    console.log('all post:', this.postList)
   }
 }

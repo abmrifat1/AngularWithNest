@@ -3,7 +3,7 @@ import { Controller, Get } from '@nestjs/common';
 import { PostService } from '../services/postService';
 import { PostModel } from "../models/postModel";
 
-@Controller('post')
+@Controller('posts')
 export class PostController {
     constructor(private postService: PostService){
     }
