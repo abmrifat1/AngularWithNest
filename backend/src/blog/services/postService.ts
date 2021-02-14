@@ -1,12 +1,30 @@
 import { from, Observable, of } from "rxjs";
 import { Injectable } from '@nestjs/common';
-import { PostModel } from '../models/postModel';
 import { title } from "process";
 import { MockedPosts } from "../mocks/mockedPosts";
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { PostEntity } from '../entities/postEntity';
 
 @Injectable()
 export class PostService {
-    public getAllPost(): Observable<PostModel[]> {
-        return of(MockedPosts);
+    constructor(
+        @InjectRepository(PostEntity)
+        private postRepository: Repository<PostEntity>,
+      ) {}
+    
+    public getAllPost(): Observable<PostEntity[]> {
+        return from(this.postRepository.find());
     } 
+
+    public createPost() {
+        this.postRepository.save(
+            {
+                title: 'this is title',
+                subTitle: 'sub-title is on here',
+                img: '',
+                content: 'this is the contents of post!!!'
+            },
+        );
+    }
 }

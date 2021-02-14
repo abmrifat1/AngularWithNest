@@ -1,7 +1,7 @@
 import { from } from "rxjs";
-import { PostModel } from '../models/postModel';
+import { PostEntity } from '../entities/postEntity';
 
-export const MockedPosts: PostModel[] = [
+export const MockedPosts: any[] = [
     {
       title: 'title - 1',
       subTitle: 'sub-title - 1',
