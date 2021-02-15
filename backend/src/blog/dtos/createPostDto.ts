@@ -5,7 +5,7 @@ export class createPostDto {
 
     public subTitle: string;
 
-    public img: string;
+    public userId: number;
     
     public content: string
 }

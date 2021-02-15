@@ -1,7 +1,6 @@
 import { from, Observable, of } from "rxjs";
 import { Injectable } from '@nestjs/common';
 import { title } from "process";
-import { MockedPosts } from "../mocks/mockedPosts";
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PostEntity } from '../entities/postEntity';
@@ -25,5 +24,19 @@ export class PostService {
 
     public createPost(createPostDto: createPostDto): Promise<PostDto> {
         return this.postRepository.save(createPostDto);
+    }
+
+    public updatePost(id: number, post: createPostDto): Promise<PostDto> {
+        this.postRepository.update(+id, post);
+        return;
+    }
+
+    public deletePost(id: number) {
+        console.log('remove:', id);
+      return this.postRepository.delete(id);
+    }
+
+    public getAllPostByUserId(userId: number): Observable<PostEntity[]> {
+        return from(this.postRepository.find({userId: userId}));
     }
 }

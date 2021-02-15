@@ -11,8 +11,8 @@ export class PostEntity {
     @Column({length: 5000})
     subTitle: string;
 
-    @Column('text')
-    img: string;
+    @Column()
+    userId: number;
     
     @Column('text')
     content: string
