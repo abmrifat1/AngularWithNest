@@ -5,6 +5,8 @@ import { MockedPosts } from "../mocks/mockedPosts";
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PostEntity } from '../entities/postEntity';
+import { createPostDto } from "../dtos/createPostDto";
+import { PostDto } from "../dtos/postDto";
 
 @Injectable()
 export class PostService {
@@ -21,14 +23,7 @@ export class PostService {
         return from(this.postRepository.findOne(id));
     }
 
-    public createPost() {
-        this.postRepository.save(
-            {
-                title: 'this is title',
-                subTitle: 'sub-title is on here',
-                img: '',
-                content: 'this is the contents of post!!!'
-            },
-        );
+    public createPost(createPostDto: createPostDto): Promise<PostDto> {
+        return this.postRepository.save(createPostDto);
     }
 }

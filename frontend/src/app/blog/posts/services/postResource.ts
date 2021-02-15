@@ -1,9 +1,9 @@
 
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import { AppConfig } from "../appConfig";
+import { AppConfig } from "../../appConfig";
 import { from, Observable } from 'rxjs';
-import { IPostList } from '../dataModel/postList';
+import { IPostList } from './dataModel/postList';
 
 @Injectable()
 export class PostResource {

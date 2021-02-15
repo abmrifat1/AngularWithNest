@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { from } from "rxjs";
-import { PostListComponent } from "./postLComponent";
+import { PostListComponent } from "./postListComponent";
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';

@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from '@angular/common/http';
 import { PostModule } from "./posts/postModule";
-import { PostResource } from "./posts/services/postResource";
-import { PostService } from "./posts/services/postsService";
+import { PostResource } from "../services/postResource";
+import { PostService } from "../services/postsService";
 import { from } from "rxjs";
 
 @NgModule({
